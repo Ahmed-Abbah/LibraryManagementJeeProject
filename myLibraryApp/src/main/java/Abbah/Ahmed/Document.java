@@ -1,70 +1,71 @@
 package Abbah.Ahmed;
-public class Document {
-    private static int nextId = 1;
-    private final int idDocument;
-    private String nom;
-    private String type;
-    private String auteur;
-    private String categorie;
-    private Float prix;
-    
-    
-    
-    
-    public Document(String nom, String type, String auteur, String categorie, float prix){
-        this.idDocument = nextId++;
-        this.nom = nom;
-        this.type = type;
-        this.auteur = auteur;
-        this.categorie = categorie;
-        this.prix = prix;
-    }
-    
-    public int getIdDocument() {
-        return idDocument;
-    }
-    
-    public String getNom() {
-        return nom;
-    }
-    
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
-    public String getType() {
-        return type;
-    }
-    
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    public String getAuteur() {
-        return auteur;
-    }
-    
-    public void setAuteur(String auteur) {
-        this.auteur = auteur;
-    }
-    
-    public String getCategorie() {
-        return categorie;
-    }
-    
-    public void setCategorie(String categorie) {
-        this.categorie = categorie;
-    }
-    
-    public Float getPrix() {
-        return prix;
-    }
-    
-    public void setPrix(Float prix) {
-        this.prix = prix;
-    }
-    public String toString() {
-    	return "["+"ID:"+this.idDocument+","+"Name:"+this.nom+","+"Type"+this.type+","+"Author:"+this.auteur+","+"Category:"+this.categorie+","+"Price:"+this.prix+"]";
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "livre")
+public class Document {
+    @Id
+    @Column(name = "id")
+    private int idDocument;
+    
+    @Column(name = "titre")
+    private String titre;
+    
+    @Column(name = "auteur")
+    private String auteur;
+    
+    @Column(name = "categorie")
+    private String categorie;
+    
+    @Column(name = "synopsis")
+    private String synopsis;
+    public Document() {
+    	
     }
+	public Document(String titre, String auteur, String categorie, String synopsis) {
+		this.titre = titre;
+		this.auteur = auteur;
+		this.categorie = categorie;
+		this.synopsis = synopsis;
+	}
+	@Override
+	public String toString() {
+		return "Document [idDocument=" + idDocument + ", titre=" + titre + ", auteur=" + auteur + ", categorie="
+				+ categorie + ", synopsis=" + synopsis + "]";
+	}
+	public int getIdDocument() {
+		return idDocument;
+	}
+	public void setIdDocument(int idDocument) {
+		this.idDocument = idDocument;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public String getAuteur() {
+		return auteur;
+	}
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+	public String getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+	public String getSynopsis() {
+		return synopsis;
+	}
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+    
+    
 }

@@ -1,5 +1,5 @@
 package Abbah.Ahmed;
-import java.util.HashMap;
+
 public class Interpreter {
 	public Context context;
     public Interpreter(Context context) {
@@ -11,13 +11,14 @@ public class Interpreter {
         
         switch (parts[0]) {
         	case "add":
-        	if(parts.length == 7 || parts.length == 5) {
+        	if(parts.length == 6 || parts.length == 8) {
         		switch (parts[1]) {
             	case "document":
-            		AddDocumentExpression addDocumentExpression = new AddDocumentExpression(parts[2], parts[3], parts[4], parts[5], Float.parseFloat(parts[6]));
+            		AddDocumentExpression addDocumentExpression = new AddDocumentExpression(parts[2], parts[3], parts[4], parts[5]);
+            		
                     return OutputStr("Document Added !",addDocumentExpression.interpret(context),"success");
                 case "client":
-                	AddNewClientExpression addNewClientExpression = new AddNewClientExpression(parts[2] ,parts[3], parts[4]);
+                	AddNewClientExpression addNewClientExpression = new AddNewClientExpression(parts[2] ,parts[3], parts[4],parts[5], parts[6],Boolean.parseBoolean(parts[7]));
                     return OutputStr("Client Added !",addNewClientExpression.interpret(context),"success");
                 default:
                 	return OutputStr("Syntaxe error!","Type 'help' for more infos .","error");
@@ -30,7 +31,6 @@ public class Interpreter {
              
         	default:
         		return OutputStr("error !","Type 'help' for more infos .","info");
-        		
         }
     }
     public String OutputStr(String param1,String param2,String param3) {

@@ -1,0 +1,50 @@
+package Abbah.Ahmed;
+public class Document {
+    private int idDocument;
+    private String titre;
+    private String auteur;
+    private String categorie;
+    private String synopsis;
+    public Document() {
+    	
+    }
+	public Document(int idDocument, String titre, String auteur, String categorie, String synopsis) {
+		this.idDocument = idDocument;
+		this.titre = titre;
+		this.auteur = auteur;
+		this.categorie = categorie;
+		this.synopsis = synopsis;
+	}
+	public int getIdDocument() {
+		return idDocument;
+	}
+	public void setIdDocument(int idDocument) {
+		this.idDocument = idDocument;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public String getAuteur() {
+		return auteur;
+	}
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+	public String getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+	public String getSynopsis() {
+		return synopsis;
+	}
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+    
+    
+}

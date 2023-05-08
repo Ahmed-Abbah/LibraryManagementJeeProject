@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Sign Up Form by Colorlib</title>
+<title>Inscription</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -22,9 +22,9 @@
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-						<h2 class="form-title">Sign up</h2>
+						<h2 class="form-title">Inscription</h2>
 					
-						<form method="" action="" class="register-form"
+						<form method="POST" action="inscription" class="register-form"
 							id="register-form">
 							<div class="form-group">
 								<label for="name"><i
@@ -49,16 +49,10 @@
 								<input type="text" name="contact" id="contact"
 									placeholder="Contact no" />
 							</div>
-							<div class="form-group">
-								<input type="checkbox" name="agree-term" id="agree-term"
-									class="agree-term" /> <label for="agree-term"
-									class="label-agree-term"><span><span></span></span>I
-									agree all statements in <a href="#" class="term-service">Terms
-										of service</a></label>
-							</div>
+							
 							<div class="form-group form-button">
 								<input type="submit" name="signup" id="signup"
-									class="form-submit" value="Register" />
+									class="form-submit" value="S'inscrire" />
 							</div>
 						</form>
 					</div>
@@ -66,8 +60,7 @@
 						<figure>
 							<img src="images/signup-image.jpg" alt="sing up image">
 						</figure>
-						<a href="login.jsp" class="signup-image-link">I am already
-							member</a>
+						<a href="login.jsp" class="signup-image-link">Je suis déja un membre</a>
 					</div>
 				</div>
 			</div>
@@ -79,8 +72,5 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 
-
-
 </body>
-<!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

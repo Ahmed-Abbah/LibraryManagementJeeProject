@@ -5,9 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>Administrateur</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="assets/css/style.css">
+	
+	<!-- Include SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+
+<!-- Include SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -20,7 +28,7 @@
                         <span class="icon">
                             <ion-icon name="logo-apple"></ion-icon>
                         </span>
-                        <span class="title">Brand Name</span>
+                        <span class="title">BiblioTech</span>
                     </a>
                 </li>
 
@@ -29,7 +37,7 @@
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">Tableau de Bord</span>
                     </a>
                 </li>
 
@@ -79,13 +87,19 @@
                 </li>
 
                 <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
+		<form method="POST">
+		  <a href	="../logout">
+        <span class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </span>
+        <span class="title">Sign Out</span>
+    </a>
+		</form>
+              
+
+    
+</li>
+
             </ul>
         </div>
 
@@ -98,9 +112,81 @@
 
                 <div class="search">
                     <label>
-                        <input type="text" placeholder="Search here">
+                    <form action="../interpreter" id="interpreter-form">
+                    	<input type="text" name="input" id="input" class="form-control mr-2 align-self-center" placeholder="Search here">
+                    	
                         <ion-icon name="search-outline"></ion-icon>
+                        
+                    </form>
+                    
+					
+
+                    <!-- Include jQuery and Bootstrap JS -->
+	
+	
+	<script>
+		// Submit form data using AJAX
+		$('#interpreter-form').submit(function(event) {
+			event.preventDefault(); // Prevent page refresh on form submission
+			var form = $(this);
+			var url = form.attr('action');
+			const now = new Date();
+			$.ajax({
+				type: 'GET',
+				url: url,
+				data: form.serialize(), // Serialize form data for submission
+				success: function(result) {
+					var result2= result.split("\n");
+					Swal.fire({
+						  title:result2[0],
+						  text: result2[1],
+						  icon: result2[2],
+						  confirmButtonText: 'OK'
+						});
+					now.setHours(now.getHours() + 1);
+				    $('#result').append('<p>'+now.toLocaleTimeString()+':' + result2[2] + '</p>'); // Append result to #result div
+
+				    var resultDiv = document.getElementById("result");
+				    resultDiv.scrollTop = resultDiv.scrollHeight; // Scroll to bottom of #result div
+				},
+				error: function() {
+					alert('Error submitting form!'); 
+				}
+			});
+		});
+		
+		$(document).ready(function() {
+			  $('#show-log').click(function() {
+			    $('#result').slideToggle();
+			  });
+			});
+
+
+	</script>
+      <style>
+      #result {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  width: 300px;
+  height: 200px;
+  overflow: scroll;
+  background-color: #333;
+  color: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  border-radius:5px;
+}
+      
+      
+      </style>                  
                     </label>
+                    <button id="show-log">Show Log</button>
+
+					<div id="result" class="mt-3" style="display:none;"></div>
                 </div>
 
                 <div class="user">

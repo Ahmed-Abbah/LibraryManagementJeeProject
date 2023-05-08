@@ -8,8 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
-@Table(name= "utilisateur")
+@Table(name="utilisateur")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,14 +26,31 @@ public class Client {
 
     private String numTel;
     
-    private boolean membre;
+    public int getIsAdmin() {
+		return isAdmin;
+	}
+
+	public void setIsAdmin(int isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	public Client(String nom, String prenom, String email, String mot_de_passe, String numTel, boolean membre) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.mot_de_passe = mot_de_passe;
+		this.numTel = numTel;
+		this.membre = membre;
+	}
+	private boolean membre;
     
     private enum Statut{
         bloque,nonBloque;
     }
     @Enumerated(EnumType.STRING)
     private Statut statut;
-
+    
+    private int isAdmin;
     public Client() {
     }
 

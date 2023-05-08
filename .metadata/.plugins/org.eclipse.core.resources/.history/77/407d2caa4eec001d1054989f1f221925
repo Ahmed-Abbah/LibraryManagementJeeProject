@@ -1,0 +1,13 @@
+package Abbah.Ahmed;
+public class Document {
+    private int idDocument;
+    private String titre;
+    private String auteur;
+    private String categorie;
+    private String synopsis;
+    public Document() {
+    	
+    }
+    
+    
+}

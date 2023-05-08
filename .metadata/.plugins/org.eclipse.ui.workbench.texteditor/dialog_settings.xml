@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Host"/>
+		<item key="selection" value="logout"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="logout"/>
+			<item value="form"/>
+			<item value="input"/>
+			<item value="Sign out"/>
 			<item value="host"/>
 			<item value="mem"/>
 			<item value="Mem"/>

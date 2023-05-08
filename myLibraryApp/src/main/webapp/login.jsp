@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 <!-- Font Icon -->
 <link rel="stylesheet"
 	href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Main css -->
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -30,31 +31,37 @@
 					</div>
 
 					<div class="signin-form">
+					<%
+String errorMessage = (String) request.getAttribute("errorMessage");
+if(errorMessage != null && !errorMessage.isEmpty()) {
+%><script>
+        swal("Error!", "<%= errorMessage %>", "error");
+    </script>
+    <div class="error"></div>
+<%
+}
+%>
+					
+					
 						<h2 class="form-title">Sign up</h2>
-						<form method="" action="" class="register-form"
-							id="login-form">
-							<div class="form-group">
-								<label for="username"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="username" id="username"
-									placeholder="Your Name" />
-							</div>
-							<div class="form-group">
-								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" name="password" id="password"
-									placeholder="Password" />
-							</div>
-							<div class="form-group">
-								<input type="checkbox" name="remember-me" id="remember-me"
-									class="agree-term" /> <label for="remember-me"
-									class="label-agree-term"><span><span></span></span>Remember
-									me</label>
-							</div>
-							<div class="form-group form-button">
-								<input type="submit" name="signin" id="signin"
-									class="form-submit" value="Log in" />
-							</div>
-						</form>
+						<form method="POST" action="login" class="register-form" id="login-form">
+    <div class="form-group">
+        <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label> 
+        <input type="text" name="username" id="username" placeholder="Your Name" />
+    </div>
+    <div class="form-group">
+        <label for="password"><i class="zmdi zmdi-lock"></i></label> 
+        <input type="password" name="password" id="password" placeholder="Password" />
+    </div>
+    <div class="form-group">
+        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" /> 
+        <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+    </div>
+    <div class="form-group form-button">
+        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" />
+    </div>
+</form>
+
 						<div class="social-login">
 							<span class="social-label">Or login with</span>
 							<ul class="socials">

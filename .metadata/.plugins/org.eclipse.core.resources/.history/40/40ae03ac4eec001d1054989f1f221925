@@ -1,0 +1,21 @@
+package Abbah.Ahmed;
+public class Document {
+    private int idDocument;
+    private String titre;
+    private String auteur;
+    private String categorie;
+    private String synopsis;
+    public Document() {
+    	
+    }
+	public Document(int idDocument, String titre, String auteur, String categorie, String synopsis) {
+		super();
+		this.idDocument = idDocument;
+		this.titre = titre;
+		this.auteur = auteur;
+		this.categorie = categorie;
+		this.synopsis = synopsis;
+	}
+    
+    
+}

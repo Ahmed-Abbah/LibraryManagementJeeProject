@@ -37,7 +37,7 @@ public class Main {
 		Client client = new Client();
 		client.setNom("John");
 		client.setPrenom("Doe");
-		client.setEmail("Ahmed.Abbah@email.com");
+		client.setEmail("hi@email.com");
 		client.setMot_de_passe("mypassword");
 		client.setNumTel("555-1234");
 		client.setMembre(false);
@@ -46,12 +46,12 @@ public class Main {
 		try {
 		    // start a new transaction
 			   session.beginTransaction();
-			   Client client2 = session.createQuery("select c from Client c where c.id = :clientId", Client.class)
-	                    .setParameter("clientId", 1)
-	                    .uniqueResult();
-			   System.out.println(client2.toString());
-			   client2.setStatutBloque();
-			   session.persist(client2);
+//			   Client client2 = session.createQuery("select c from Client c where c.id = :clientId", Client.class)
+//	                    .setParameter("clientId", 1)
+//	                    .uniqueResult();
+//			   System.out.println(client2.toString());
+			   //client2.setStatutBloque();
+			   session.persist(client);
 			   session.getTransaction().commit();
 			   session.close();
 		} catch (Exception e) {
