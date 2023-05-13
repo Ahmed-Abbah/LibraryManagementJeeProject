@@ -1,4 +1,5 @@
 package Abbah.Ahmed;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
@@ -6,7 +7,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 @Entity
 @Table(name = "livre")
-public class Document {
+public class Document{
+	public Document() {
+		
+	}
+//	private List<Observer> observers = new ArrayList<Observer>();
     @Id
     @Column(name = "id")
     private int idDocument;
@@ -22,9 +27,7 @@ public class Document {
     
     @Column(name = "synopsis")
     private String synopsis;
-    public Document() {
-    	
-    }
+   
 	public Document(String titre, String auteur, String categorie, String synopsis) {
 		this.titre = titre;
 		this.auteur = auteur;
@@ -36,20 +39,20 @@ public class Document {
 		return "Document [idDocument=" + idDocument + ", titre=" + titre + ", auteur=" + auteur + ", categorie="
 				+ categorie + ", synopsis=" + synopsis + "]";
 	}
-	public int getIdDocument() {
+	public int getIdDocument(){
 		return idDocument;
 	}
 	public void setIdDocument(int idDocument) {
 		this.idDocument = idDocument;
 	}
 	public String getTitre() {
-		return titre;
+		return this.titre;
 	}
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
 	public String getAuteur() {
-		return auteur;
+		return this.auteur;
 	}
 	public void setAuteur(String auteur) {
 		this.auteur = auteur;
@@ -66,6 +69,10 @@ public class Document {
 	public void setSynopsis(String synopsis) {
 		this.synopsis = synopsis;
 	}
+	
+	
+	
+
     
     
 }

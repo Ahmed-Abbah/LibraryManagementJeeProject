@@ -1,0 +1,11 @@
+package Abbah.Ahmed;
+
+public class ShowClients implements Expression {
+
+	@Override
+	public String interpret(Context context) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

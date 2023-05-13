@@ -1,0 +1,26 @@
+package Abbah.Ahmed;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+public class ShowClients implements Expression {
+
+	@Override
+	public String interpret(Context context) {
+		@Override
+		public String interpret(Context context){
+			SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+	        Session session = sessionFactory.getCurrentSession();
+	        session.beginTransaction();
+	        
+			if(context.addClient(this.client)){
+				session.persist(this.client);
+		        session.getTransaction().commit();
+				return "Client Liste : "+""+this.client.toString()+ " has been added successfully .";
+			}
+			return "Error while adding the client ! .";
+
+		}
+	}
+	
+}

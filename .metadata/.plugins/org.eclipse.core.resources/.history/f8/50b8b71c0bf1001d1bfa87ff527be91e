@@ -1,0 +1,29 @@
+package Abbah.Ahmed;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import java.util.List;
+
+class SearchByAuthor implements SearchStrategy {
+    public List<Document> search(String query) {
+    	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        
+        Client client = session.createQuery("FROM Document WHERE email = :username AND mot_de_passe = :password", Client.class)
+                .setParameter("username", username)
+                .setParameter("password", password);
+        
+        if(clientList.size() > 0){
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("show clients").append("\n");
+            for(Client client : clientList){
+                stringBuilder.append(client.toString()).append("\n");
+            }
+            session.getTransaction().commit();
+            return null;
+        }
+        session.getTransaction().commit();
+       
+    	return null;
+    }
+}

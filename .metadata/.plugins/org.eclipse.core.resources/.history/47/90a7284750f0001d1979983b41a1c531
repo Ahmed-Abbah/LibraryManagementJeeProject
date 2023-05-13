@@ -1,0 +1,29 @@
+package Abbah.Ahmed;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import java.util.*;
+public class ShowClients implements Expression {
+
+    @Override
+    public String interpret(Context context) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        
+        List<Client> clientList = session.createQuery("from Client", Client.class).list();
+        
+        if(clientList.size() > 0){
+            StringBuilder stringBuilder = new StringBuilder();
+            
+            for(Client client : clientList){
+                stringBuilder.append(client.toString()).append("\n");
+            }
+            session.getTransaction().commit();
+            return stringBuilder.toString();
+        }
+        session.getTransaction().commit();
+        return "No clients found.";
+    }
+}
+

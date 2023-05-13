@@ -20,23 +20,14 @@ public class InterpreterServlet extends HttpServlet {
     public Interpreter interpreter;
 
     public void init() {
-        
         Context context = new Context(new Stock(),new ClientListe());
-//        stock.ajouterDocument(new Document(2,"Java Courses"));
-//        stock.ajouterDocument(new Document(3,"Jee"));
-//        stock.ajouterDocument(new Document(6,"Livre"));
-//        stock.ajouterDocument(new Document(9,"Antigone"));
-//        clientListe.ajouterClient(1,"Ahmed");
-//        clientListe.ajouterClient(2,"Ali");
-//        clientListe.ajouterClient(3,"Abbah");
-//        clientListe.ajouterClient(4,"Klims");
         interpreter = new Interpreter(context);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String input = request.getParameter("input");
         String result = interpreter.interpret(input);
-        response.setContentType("text/plain"); // Set content type to plain text
-        response.getWriter().write(result); // Write result to response
+        response.setContentType("text/plain");
+        response.getWriter().write(result);
     }
 }

@@ -1,0 +1,11 @@
+package Abbah.Ahmed;
+
+public class SearchByTitle implements SearchStrategy {
+
+	@Override
+	public String search(String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

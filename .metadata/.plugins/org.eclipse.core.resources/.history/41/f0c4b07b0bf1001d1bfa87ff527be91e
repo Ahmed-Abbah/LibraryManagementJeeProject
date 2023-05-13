@@ -1,0 +1,28 @@
+package Abbah.Ahmed;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import java.util.List;
+
+class SearchByAuthor implements SearchStrategy {
+    public List<Document> search(String query) {
+    	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        
+        List<Document>  documents = session.createQuery("FROM Document WHERE  auteur=:auteur", Document.class)
+                .setParameter("auteur", query).list();
+        
+        if(doc.size() > 0){
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("show clients").append("\n");
+            for(Client client : clientList){
+                stringBuilder.append(client.toString()).append("\n");
+            }
+            session.getTransaction().commit();
+            return null;
+        }
+        session.getTransaction().commit();
+       
+    	return null;
+    }
+}

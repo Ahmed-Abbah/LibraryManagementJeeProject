@@ -16,8 +16,10 @@ public class AddDocumentExpression implements Expression {
         if(context.addDocument(this.document)){
         	session.persist(this.document);
         	session.getTransaction().commit();
+        	session.close();
 			return this.document.toString();
 		}
+        session.close();
 		return "Error while adding the document ! .";
 	}
 }

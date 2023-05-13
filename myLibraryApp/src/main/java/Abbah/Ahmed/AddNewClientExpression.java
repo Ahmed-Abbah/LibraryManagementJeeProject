@@ -15,9 +15,10 @@ public class AddNewClientExpression implements Expression {
 		if(context.addClient(this.client)){
 			session.persist(this.client);
 	        session.getTransaction().commit();
+	        session.close();
 			return "Client Liste : "+""+this.client.toString()+ " has been added successfully .";
 		}
+		session.close();
 		return "Error while adding the client ! .";
-
 	}	
 }	

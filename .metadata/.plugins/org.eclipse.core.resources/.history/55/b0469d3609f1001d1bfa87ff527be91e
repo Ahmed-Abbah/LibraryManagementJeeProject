@@ -1,0 +1,6 @@
+package Abbah.Ahmed;
+
+public interface SearchStrategy {
+	
+
+}

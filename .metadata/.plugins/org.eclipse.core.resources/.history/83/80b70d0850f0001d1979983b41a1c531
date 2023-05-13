@@ -1,0 +1,76 @@
+package Abbah.Ahmed;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "livre")
+public class Document{
+	public document()
+//	private List<Observer> observers = new ArrayList<Observer>();
+    @Id
+    @Column(name = "id")
+    private int idDocument;
+    
+    @Column(name = "titre")
+    private String titre;
+    
+    @Column(name = "auteur")
+    private String auteur;
+    
+    @Column(name = "categorie")
+    private String categorie;
+    
+    @Column(name = "synopsis")
+    private String synopsis;
+   
+	public Document(String titre, String auteur, String categorie, String synopsis) {
+		this.titre = titre;
+		this.auteur = auteur;
+		this.categorie = categorie;
+		this.synopsis = synopsis;
+	}
+	@Override
+	public String toString() {
+		return "Document [idDocument=" + idDocument + ", titre=" + titre + ", auteur=" + auteur + ", categorie="
+				+ categorie + ", synopsis=" + synopsis + "]";
+	}
+	public int getIdDocument(){
+		return idDocument;
+	}
+	public void setIdDocument(int idDocument) {
+		this.idDocument = idDocument;
+	}
+	public String getTitre() {
+		return titre;
+	}
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+	public String getAuteur() {
+		return auteur;
+	}
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+	public String getCategorie() {
+		return categorie;
+	}
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
+	}
+	public String getSynopsis() {
+		return synopsis;
+	}
+	public void setSynopsis(String synopsis) {
+		this.synopsis = synopsis;
+	}
+	
+	
+	
+
+    
+    
+}

@@ -1,0 +1,28 @@
+package Abbah.Ahmed;
+
+
+public class Context {
+	public Client client;
+    public Document document ;
+	public Stock stock;
+    public ClientListe clientListe ;
+    public Context(Stock stock,ClientListe clientListe) {
+        this.stock=stock;
+        this.clientListe=clientListe;
+        }
+    
+    public boolean addDocument(Document document){
+        if(this.stock.documents.add(document)){
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean addClient(Client client){
+        if(clientListe.addNewClient(client)){
+            return true;
+        }
+        return false;
+    }
+}
+

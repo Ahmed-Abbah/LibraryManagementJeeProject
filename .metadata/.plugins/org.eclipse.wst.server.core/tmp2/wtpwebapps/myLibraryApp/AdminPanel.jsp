@@ -1,165 +1,129 @@
+<%@ page import="Abbah.Ahmed.Document" %>
+<%@ page import="java.util.*" %>
+<html lang="en">
 
-<%@ page import="Abbah.Ahmed.*" %>  
-<!DOCTYPE html>
-<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Interpreter</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrateur</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="assets2/css/style.css">
 	
-	
+	<!-- Include SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+
+<!-- Include SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
+
 <body>
-<style>
-  /* Style the form input */
-  #interpreter-form input[type="text"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    font-size: 16px;
-  }
-
-  /* Style the form button */
-  #interpreter-form button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  /* Change the button color on hover */
-  #interpreter-form button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-</style>
-
-<style>
-
-/* Color of the links BEFORE scroll */
-.navbar-scroll .nav-link,
-.navbar-scroll .navbar-toggler-icon,
-.navbar-scroll .navbar-brand {
-  color: #fff;
-}
-
-/* Color of the links AFTER scroll */
-.navbar-scrolled .nav-link,
-.navbar-scrolled .navbar-toggler-icon,
-.navbar-scrolled .navbar-brand {
-  color: #fff;
-}
-
-/* Color of the navbar AFTER scroll */
-.navbar-scroll,
-.navbar-scrolled {
-  background-color: #cbbcb1;
-}
-
-.mask-custom {
-  backdrop-filter: blur(5px);
-  background-color: rgba(255, 255, 255, .15);
-}
-
-.navbar-brand {
-  font-size: 1.75rem;
-  letter-spacing: 3px;
-}
-#InterpreterDiv {
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  background-color: white;
-  opacity: 0.9;
-  border-radius: 10px; /* adds rounded corners */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* adds a subtle shadow */
-  padding: 20px; /* adds padding inside the div */
-}
-#result {
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  font-family: 'Courier New', Courier, monospace;
-  overflow-y: scroll;
-	opacity:100%;
-  height: 200px;
-  border-radius:5px;
-}
-
-</style>
-
-<header>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-0">
+    <!-- =============== Navigation ================ -->
     <div class="container">
-      <a class="navbar-brand" href="#!"><span style="color: #5e9693;">Library</span><span style="color: #fff;">WebApp</span></a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#!">Log Out</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-flex flex-row">
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- Navbar -->
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <!-- <span class="icon">
+                            <ion-icon name="logo-apple"></ion-icon>
+                        </span> -->
+                        <span class="title">BiblioTech</span>
+                    </a>
+                </li>
 
-  <!--Section: Design Block-->
-  <section>
-    <!-- Intro -->
-    <div id="intro" class="bg-image vh-100" style="
-          background-image: url('books.jpg');
-        ">
-      <div class="mask" style="background-color: rgba(250, 182, 162, 0.15);"></div>
-    </div>
-    <!-- Intro -->
-  </section>
-  <!--Section: Design Block-->
-</header>
-	<div class="container mt-5" id ="InterpreterDiv">
-		<h1>Espace Administrateur.</h1>
-		<form id="interpreter-form" action="interpreter">
-			<div class="form-group d-flex">
-  <label for="input" class="mr-2 align-self-center">Enter command:</label>
-  <input type="text" name="input" id="input" class="form-control mr-2 align-self-center">
-  <button type="submit" class="btn btn-primary align-self-center">Submit</button>
-</div>
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Tableau de Bord</span>
+                    </a>
+                </li>
 
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Clients</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="title">Messages</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="help-outline"></ion-icon>
+                        </span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="settings-outline"></ion-icon>
+                        </span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="lock-closed-outline"></ion-icon>
+                        </span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+
+                <li>
+		<form method="POST">
+		  <a href	="logout">
+        <span class="icon">
+            <ion-icon name="log-out-outline"></ion-icon>
+        </span>
+        <span class="title">Sign Out</span>
+    </a>
 		</form>
-		<div id="result" class="mt-3"></div>
-	</div>
+              
+
+    
+</li>
+
+            </ul>
+        </div>
+
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+
+                <div class="search">
+                    <label>
+                    <form action="interpreter" id="interpreter-form">
+                    	<input type="text" name="input" id="input" class="form-control mr-2 align-self-center" placeholder="Search here" style="width:700px;">
+                    	
+                        <ion-icon name="search-outline"></ion-icon>
+                        
+                    </form>
+                    
+					
+
+                    <!-- Include jQuery and Bootstrap JS -->
 	
-	<!-- Include jQuery and Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	
 	<script>
 		// Submit form data using AJAX
@@ -173,16 +137,45 @@
 				url: url,
 				data: form.serialize(), // Serialize form data for submission
 				success: function(result) {
-					var result2= result.split("\n");
-					Swal.fire({
-						  title:result2[0],
-						  text: result2[1],
-						  icon: result2[2],
-						  confirmButtonText: 'OK'
-						});
-					now.setHours(now.getHours() + 1);
-				    $('#result').append('<p>'+now.toLocaleTimeString()+':' + result2[2] + '</p>'); // Append result to #result div
+					var result2 = result.split("\n");
+					var htmlContent = "";
+					for (var i = 0; i < result2.length; i++) {
+					  htmlContent += result2[i] + "<br><br>";
+					}
 
+					if (result2[0] == "recherche des documents") {
+					    Swal.fire({
+					        title:result2.length-3 + " Résultats trouvé",
+					        html: htmlContent,
+					        icon: result2[2],
+					        confirmButtonText: 'OK'
+					    });
+					} else if(result2[0] == "Document Added !") {
+					    Swal.fire({
+					        title:result2[0],
+					        text: result2[1],
+					        icon:result2[2],
+					        confirmButtonText: 'OK'
+					    });
+					} else if(result2[0] == "Document Added !") {
+					    Swal.fire({
+					        title:result2[0],
+					        text: result2[1],
+					        icon:result2[2],
+					        confirmButtonText: 'OK'
+					    });
+					} else if(result2[0] == "Client Added !") {
+					    Swal.fire({
+					        title:result2[0],
+					        text: result2[1],
+					        icon:result2[2],
+					        confirmButtonText: 'OK'
+					    });
+					}
+
+					now.setHours(now.getHours() + 1);
+				    $('#result').append('<p>'+now.toLocaleTimeString()+':' + result2[0] + '</p>'); // Append result to #result div
+				    $('#clientTable').append(result2); 
 				    var resultDiv = document.getElementById("result");
 				    resultDiv.scrollTop = resultDiv.scrollHeight; // Scroll to bottom of #result div
 				},
@@ -191,6 +184,132 @@
 				}
 			});
 		});
+		
+		$(document).ready(function() {
+			  $('#show-log').click(function() {
+			    $('#result').slideToggle();
+			  });
+			});
+
+
 	</script>
+      <style>
+      #result {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  display: none;
+  width: 300px;
+  height: 200px;
+  overflow: scroll;
+  background-color: #333;
+  color: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  border-radius:5px;
+}
+      
+      
+      </style>                  
+                    </label>
+                    <button id="show-log">Show Log</button>
+
+					<div id="result" class="mt-3" style="display:none;"></div>
+                </div>
+
+                <div class="user">
+ 
+                </div><div class="user">
+ 
+                </div><div class="user">
+ 
+                </div>	
+            </div>
+
+            <!-- ======================= Cards ================== -->
+         <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">10</div>
+                        <div class="cardName">Clients</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                <div class="user">
+<%--  <% System.out.println("Connected Client :"+request.getSession().getAttribute("user")); %>
+ --%>                </div>	
+                <div class="user">
+ 
+                </div>	
+                    <div>
+                        <div class="numbers">50</div>
+                        <div class="cardName">Documents</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
+
+             
+            </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Liste des Documents Ajouté</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                            <td>Document ID</td>
+                                <td>Titre</td>
+                                <td>Auteur</td>
+                                <td>Categorie</td>
+                                <td>Synopsis</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                           
+                            <%
+          List<Document> documents = (List<Document>) request.getAttribute("documents");
+          for (Document document : documents) {
+        %>
+        <tr>
+          <td><%= document.getIdDocument() %></td>
+          <td><%= document.getTitre() %></td>
+          <td><%= document.getAuteur() %></td>
+          <td><%= document.getCategorie() %></td>
+          <td><%= document.getSynopsis() %></td>
+        </tr>
+        <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

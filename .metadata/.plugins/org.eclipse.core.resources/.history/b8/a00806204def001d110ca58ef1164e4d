@@ -1,0 +1,78 @@
+package Abbah.Ahmed;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
+public class ClientBuilder {
+    private int id;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String mot_de_passe;
+    private String numTel;
+    private boolean membre;
+    private enum Statut{
+        bloque,nonBloque;
+    }
+    private Statut statut;
+    private int isAdmin;
+
+    public ClientBuilder withId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    public ClientBuilder withNom(String nom) {
+        this.nom = nom;
+        return this;
+    }
+
+    public ClientBuilder withPrenom(String prenom) {
+        this.prenom = prenom;
+        return this;
+    }
+
+    public ClientBuilder withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ClientBuilder withMot_de_passe(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
+        return this;
+    }
+
+    public ClientBuilder withNumTel(String numTel) {
+        this.numTel = numTel;
+        return this;
+    }
+
+    public ClientBuilder withMembre(boolean membre) {
+        this.membre = membre;
+        return this;
+    }
+
+    public ClientBuilder withStatut(Statut statut) {
+        this.statut = statut;
+        return this;
+    }
+
+    public ClientBuilder withIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+        return this;
+    }
+
+    public Client build() {
+        Client client = new Client();
+        client.setId(this.id);
+        client.setNom(this.nom);
+        client.setPrenom(this.prenom);
+        client.setEmail(this.email);
+        client.setMot_de_passe(this.mot_de_passe);
+        client.setNumTel(this.numTel);
+        client.setMembre(this.membre);
+        //client.setStatut(this.statut);
+        client.setIsAdmin(this.isAdmin);
+        return client;
+    }
+}

@@ -17,5 +17,6 @@
     <property name="current_session_context_class">thread</property>
     <mapping class="Abbah.Ahmed.Client" />
     <mapping class="Abbah.Ahmed.Document" />
+    <mapping class="Abbah.Ahmed.Reservation" />
     </session-factory>
 </hibernate-configuration>

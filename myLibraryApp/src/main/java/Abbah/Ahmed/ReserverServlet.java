@@ -1,0 +1,30 @@
+//import java.io.IOException;
+//import java.time.LocalDate;
+//
+//import jakarta.servlet.ServletException;
+//import jakarta.servlet.http.HttpServlet;
+//import jakarta.servlet.http.HttpServletRequest;
+//import jakarta.servlet.http.HttpServletResponse;
+//
+//public class ReservationServlet extends HttpServlet {
+//
+//    @Override
+//    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//
+//        // Retrieve the form data from the HTTP request
+//        int userId = Integer.parseInt(request.getParameter("userId"));
+//        int bookId = Integer.parseInt(request.getParameter("bookId"));
+//        LocalDate reservationDate = LocalDate.parse(request.getParameter("reservationDate"));
+//        LocalDate returnDate = LocalDate.parse(request.getParameter("returnDate"));
+//
+//        // Create a new Reservation object with the form data
+//        Reservation reservation = new Reservation(0, userId, bookId, reservationDate, returnDate);
+//
+//        // TODO: Store the reservation object into a database using JPA
+//
+//        // Send a response back to the client
+//        response.setContentType("text/html");
+//        response.getWriter().println("<h1>Reservation created successfully</h1>");
+//    }
+//}

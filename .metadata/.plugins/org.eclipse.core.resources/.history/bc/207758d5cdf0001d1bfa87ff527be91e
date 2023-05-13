@@ -1,0 +1,51 @@
+package Abbah.Ahmed;
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+@WebServlet("/login")
+public class ClientServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    private SessionFactory sessionFactory;
+
+    public void init() throws ServletException {
+    	
+        sessionFactory = new Configuration().configure().buildSessionFactory();
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+     // Retrieve the user from the database
+        Session session = sessionFactory.openSession();
+            	try {
+
+            		List<Document> documents = session.createQuery("SELECT c FROM Client d", Document.class).list();
+            		request.setAttribute("documents", documents);
+
+            	    System.out.println("Number of documents retrieved: " + documents.size());
+
+            	    RequestDispatcher dispatcher = request.getRequestDispatcher("Client.jsp");
+            	    dispatcher.forward(request, response);
+
+            	} catch (Exception e) {
+            	    System.out.println("Error occurred: " + e.getMessage());
+            	}
+    }
+
+         
+
+    public void destroy() {
+        sessionFactory.close();
+    }
+}

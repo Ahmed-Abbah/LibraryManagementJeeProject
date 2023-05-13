@@ -1,0 +1,5 @@
+package Abbah.Ahmed;
+import java.util.*;
+interface SearchStrategy {
+    List<Document> search(String query);
+}
